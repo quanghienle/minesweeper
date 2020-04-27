@@ -7,21 +7,21 @@
 (def grid-width 10)
 (def grid-height 10)
 (def num-mines 20)
-(def init-val "-")
+; (def init-val "-")
+
+(defn init-val
+  "init grid"
+  [cell-val]
+  (->> cell-val
+       (repeat grid-width)
+       vec
+       (repeat grid-height)
+       vec))
 
 (defonce app-state 
   (atom {:text "Minesweeper"
-         :grid (->> init-val
-                    (repeat grid-width)
-                    vec
-                    (repeat grid-height)
-                    vec)
-         :display-grid (->> "."
-                    (repeat grid-width)
-                    vec
-                    (repeat grid-height)
-                    vec)
-         :buttons ["true", "false", "1", "0"]}))
+         :grid (init-val "-")
+         :display-grid (init-val ".")}))
 
 (defn init-grid
   "randomly placing mines to the grid"

@@ -1,5 +1,5 @@
 
-## Setup
+# Setup
 
 To get an interactive development environment run:
 
